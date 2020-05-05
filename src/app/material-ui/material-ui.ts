@@ -12,6 +12,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 export const materialComponents = [
   MatButtonModule,
@@ -27,5 +28,6 @@ export const materialComponents = [
   MatSnackBarModule, 
   MatBadgeModule,
   MatFormFieldModule,
-  MatSelectModule
+  MatSelectModule,
+  MatProgressSpinnerModule
 ];
