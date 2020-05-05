@@ -80,7 +80,7 @@ export class HomeComponent implements OnInit {
       animationEnabled: true,
       exportEnabled: true,
       title:{
-        text: "Pie Chart of Active Cases"
+        text: "Pie Chart of Covid-19 Active Cases in India"
       },
       data: [{
         type: "pie",
