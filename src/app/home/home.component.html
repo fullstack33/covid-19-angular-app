@@ -1,0 +1,73 @@
+<div class="home">
+    <mat-card *ngIf="data">
+        <mat-card-title>Covid-19</mat-card-title>
+        <mat-card-content>
+            <p>Coronavirus disease (COVID-19) is an infectious disease caused by a newly discovered coronavirus.</p>
+            <p> Most people who fall sick with COVID-19 will experience mild to moderate symptoms and recover without
+                special treatment.</p>
+            <h4>HOW IT SPREADS</h4>
+            <p>The virus that causes COVID-19 is mainly transmitted through droplets
+                generated when an infected person coughs, sneezes, or exhales. These
+                droplets are too heavy to hang in the air, and quickly fall on floors or
+                surfaces.
+            </p>
+            <p>
+                You can be infected by breathing in the virus if you are within close
+                proximity of someone who has COVID-19, or by touching a contaminated
+                surface and then your eyes, nose or mouth.
+            </p>
+        </mat-card-content>
+    </mat-card>
+
+    <br>
+
+    <mat-card>
+        <h2>Cases State Wise</h2>
+        <mat-form-field style="width: 100%;" appearance="outline">
+            <mat-label>State</mat-label>
+            <mat-select [(value)]="selectedValue" (selectionChange)="onChange($event)">
+                <mat-option *ngFor="let state of states" value={{state}}>{{state}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-card-content *ngIf="activeCase">
+            <div fxLayoutAlign="space-between center">
+                <h4>Confirmed Cases: <b>{{confirmCase}}</b></h4>
+                <h4>Recover: <b>{{recover}}</b></h4>
+            </div>
+            <div fxLayoutAlign="space-between center">
+                <h4>Total Cases: <b>{{activeCase}}</b></h4>
+                <h4>Death : <b>{{death}}</b></h4>
+            </div>
+            <div>
+                <h4>Last update: <b>{{lastUpdate}}</b></h4>
+            </div>
+        </mat-card-content>
+    </mat-card>
+    <br>
+    <mat-card>
+        <div id="pieChart" style="height: 370px; width: 100%; margin-left:auto;margin-right:auto;"></div>
+    </mat-card>
+    <br>
+    <mat-card>
+        <div id="histogram" style="height: 370px; width: 100%;"></div>
+    </mat-card>
+    <br>
+    <mat-card>
+        <mat-card-title>
+            To prevent the spread of COVID-19:
+        </mat-card-title>
+        <mat-card-content>
+            <ul style="font-weight: bold;">
+                <li>Clean your hands often. Use soap and water, or an alcohol-based hand rub.</li>
+                <li>Maintain a safe distance from anyone who is coughing or sneezing.</li>
+                <li>Don’t touch your eyes, nose or mouth.</li>
+                <li>Cover your nose and mouth with your bent elbow or a tissue when you cough or sneeze.</li>
+                <li>Stay home if you feel unwell.</li>
+                <li>If you have a fever, a cough, and difficulty breathing, seek medical attention. Call in advance.</li>
+                <li>Follow the directions of your local health authority.</li>
+            </ul>
+        </mat-card-content>
+    </mat-card>
+
+</div>
