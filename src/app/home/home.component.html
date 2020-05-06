@@ -1,5 +1,6 @@
-<div class="home" >
-    <mat-card *ngIf="data">
+<div class="home" *ngIf="data">
+
+    <mat-card>
         <mat-card-title>Covid-19</mat-card-title>
         <mat-card-content>
             <p>Coronavirus disease (COVID-19) is an infectious disease caused by a newly discovered coronavirus.</p>
@@ -17,60 +18,32 @@
                 surface and then your eyes, nose or mouth.
             </p>
         </mat-card-content>
-    </mat-card>
+    </mat-card><br>
 
-    <br>
+    <app-state-wise [data]="data"></app-state-wise><br>
 
     <mat-card>
-        <h2>Cases State Wise</h2>
-        <mat-form-field style="width: 100%;" appearance="outline">
-            <mat-label>State</mat-label>
-            <mat-select [(value)]="selectedValue" (selectionChange)="onChange($event)">
-                <mat-option *ngFor="let state of states" value={{state}}>{{state}}</mat-option>
-            </mat-select>
-        </mat-form-field>
+        <app-pie-chart [text]="text" [data]="chartData"></app-pie-chart>
+    </mat-card><br>
 
-        <mat-card-content *ngIf="activeCase">
-            <div fxLayoutAlign="space-between center">
-                <h4>Total Cases: <b>{{confirmCase}}</b></h4>
-                <h4>Recovered: <b>{{recover}}</b></h4>
-            </div>
-            <div fxLayoutAlign="space-between center">
-                <h4>Active Cases: <b>{{activeCase}}</b></h4>
-                <h4>Deaths : <b>{{death}}</b></h4>
-            </div>
-            <div>
-                <h4>Last update: <b>{{lastUpdate}}</b></h4>
-            </div>
-        </mat-card-content>
-    </mat-card>
-    <br>
     <mat-card>
-        <div id="pieChart" style="height: 370px; width: 100%; margin-left:auto;margin-right:auto;"></div>
-    </mat-card>
-    <br>
-    <mat-card>
-        <div id="histogram" style="height: 370px; width: 100%;"></div>
-    </mat-card>
-    <br>
+        <app-bar-chart [text]="text" [data]="chartData"></app-bar-chart>
+    </mat-card><br>
+
     <mat-card>
         <mat-card-title>
-            To prevent the spread of COVID-19:
+            <h2> To prevent the spread of COVID-19: </h2>
         </mat-card-title>
         <mat-card-content>
-            <ul>
-                <li>Clean your hands often. Use soap and water, or an alcohol-based hand rub.</li>
-                <li>Maintain a safe distance from anyone who is coughing or sneezing.</li>
-                <li>Don’t touch your eyes, nose or mouth.</li>
-                <li>Cover your nose and mouth with your bent elbow or a tissue when you cough or sneeze.</li>
-                <li>Stay home if you feel unwell.</li>
-                <li>If you have a fever, a cough, and difficulty breathing, seek medical attention. Call in advance.</li>
-                <li>Follow the directions of your local health authority.</li>
-            </ul>
+            <h3 *ngFor="let step of preventSteps">
+                <mat-icon>keyboard_arrow_right</mat-icon>
+                {{step}}
+            </h3>
         </mat-card-content>
     </mat-card>
 
 </div>
+
 <div class="lazy" *ngIf="!data">
-    <mat-spinner ></mat-spinner>
+    <mat-spinner></mat-spinner>
 </div>

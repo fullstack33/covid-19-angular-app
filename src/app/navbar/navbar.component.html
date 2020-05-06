@@ -5,27 +5,43 @@
             <button mat-button>
                 <!-- <mat-icon>home</mat-icon> -->
                 <span class="logo">Covid - 19</span>
+
             </button>
             <div *ngIf="!deviceXs">
                 <button mat-button>Home</button>
                 <button mat-button>Contact Us</button>
                 <button mat-button>About Us</button>
             </div>
-
         </div>
 
         <div>
-            <button mat-icon-button>
+            <button mat-icon-button [matMenuTriggerFor]="menu">
                 <mat-icon *ngIf="deviceXs">more_vert</mat-icon>
                 <span *ngIf="!deviceXs">Menu</span>
             </button>
         </div>
     </mat-toolbar-row>
 
-    <mat-toolbar-row *ngIf="deviceXs" fxLayoutAlign="space-between end">
-            <button mat-button>Home</button>
-            <button mat-button>Contact Us</button>
-            <button mat-button>About Us</button>
+    <mat-toolbar-row *ngIf="deviceXs" fxLayoutAlign="center center">
+        <!-- <button mat-button>Home</button>
+        <button mat-button>Contact Us</button>
+        <button mat-button>About Us</button> -->
+        <mat-icon>home </mat-icon> Stay Home, Stay Safe
     </mat-toolbar-row>
 
+
 </mat-toolbar>
+<mat-menu #menu="matMenu">
+    <button mat-menu-item>
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+    </button>
+    <button mat-menu-item>
+        <mat-icon>people</mat-icon>
+        <span>About Us</span>
+    </button>
+    <button mat-menu-item>
+        <mat-icon>contact_phone</mat-icon>
+        <span>Contact Us</span>
+    </button>
+</mat-menu>

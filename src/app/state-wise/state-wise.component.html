@@ -1,0 +1,26 @@
+<mat-card>
+    <h2>Cases State Wise</h2>
+    <mat-form-field style="width: 100%;" appearance="outline">
+        <mat-label>Select State</mat-label>
+        <mat-select [(value)]="selectedValue" (selectionChange)="onChange($event)">
+            <mat-option *ngFor="let state of states" value={{state}}>{{state}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-card-content *ngIf="activeCase">
+        <div fxLayoutAlign="space-between center">
+            <h4>Total Cases: <b>{{confirmCase}}</b></h4>
+            <h4>Recovered: <b>{{recover}}</b></h4>
+        </div>
+        <div fxLayoutAlign="space-between center">
+            <h4>Active Cases: <b>{{activeCase}}</b></h4>
+            <h4>Deaths : <b>{{death}}</b></h4>
+        </div>
+        <div>
+            <h4>Last update: <b>{{lastUpdate}}</b></h4>
+        </div>
+    </mat-card-content>
+
+    <app-state-district-wise *ngIf="stateName" [name]="stateName"></app-state-district-wise>
+
+</mat-card>
